@@ -1,0 +1,20 @@
+{
+  "name": "fe-monitor",
+  "version": "1.0.0",
+  "description": "> monitor system build for frontend",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/PCAaron/fe-monitor.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/PCAaron/fe-monitor/issues"
+  },
+  "homepage": "https://github.com/PCAaron/fe-monitor#readme"
+}
