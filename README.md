@@ -78,12 +78,12 @@
 ## 编写监控采集脚本
 
 ### 日志服务开通      
-* 日志服务      
+* [日志服务](https://www.alibabacloud.com/help/zh/product/28958.htm)      
 日志服务(Log Service,简称SLS)是针对日志类数据一站式服务，用户无需开发就能
 快捷完成数据采集、消费、投递以及查询分析等功能，帮助提升运维，运营效率，建立
 DT时代海量日志处理能力        
-* 日志服务帮助文档      
-* Web Tracking
+* [日志服务帮助文档](https://www.aliyun.com/sswd/5126145-1.html)      
+* [Web Tracking](https://help.aliyun.com/document_detail/31752.html?spm=5176.2020520112.0.0.5fef34c0nRJ02x#h4--js-sdk)
 
 ### 错误监控        
 #### 错误分类       
@@ -92,6 +92,62 @@ DT时代海量日志处理能力
     promise异常       
 * 资源异常    
     监听error
+    
+### 数据结构设计
+#### jsError
+````javascript
+{
+    "title": '前端监控系统', // 页面标题
+    "url":"http://localhost:8080", //url
+    "timestamp":"159081542541", //访问时间戳
+    "userAgent": "Chrome", //用户浏览器类型
+    "kind": "stability", // 大类
+    "type": "error", // 小类
+    "errorType": "jsError", // 错误类型
+    "message":"Uncaught TypeError:Cannot set property 'error' of undefined", // 类型详情
+    "filename": "http://localhost:8080/", // 访问的文件名
+    "position":"0:0", // 行列信息
+    "stack":"btnClick(http://localhost：8080/:20:39)^HTMLInputElement.onclick(http://localhost:8080/:14:70)", //堆栈信息 
+    "selector":"HTML BODY #container .content INPUT" // 选择器
+}
+````
+#### promiseError
+```javascript
+{
+    "title": '前端监控系统',
+    "url":"http://localhost:8080",
+    "timestamp":"159081542541",
+    "userAgent": "Chrome",
+    "kind": "stability",
+    "type": "error",
+    "errorType": "promiseError",
+    "message":"Uncaught TypeError:Cannot set property 'error' of undefined",
+    "filename": "http://localhost:8080/",
+    "position":"0:0",
+    "stack":"btnClick(http://localhost：8080/:20:39)^HTMLInputElement.onclick(http://localhost:8080/:14:70)",
+    "selector":"HTML BODY #container .content INPUT"
+}
+```
+
+#### resourceError
+```javascript
+{
+    "title": '前端监控系统',
+    "url":"http://localhost:8080",
+    "timestamp":"159081542541",
+    "userAgent": "Chrome",
+    "kind": "stability",
+    "type": "error",
+    "errorType": "resourceError",
+    "message":"Uncaught TypeError:Cannot set property 'error' of undefined",
+    "filename": "http://localhost:8080/",
+    "position":"0:0",
+    "stack":"btnClick(http://localhost：8080/:20:39)^HTMLInputElement.onclick(http://localhost:8080/:14:70)",
+    "selector":"HTML BODY #container .content INPUT"
+}
+```
+
+    
 
 ## License      
 

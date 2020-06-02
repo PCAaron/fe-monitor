@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+    <title>前端监控搭建</title>
+</head>
+<body>
+<div id="app">
+    <div class="container">
+        <input type="button" value="js错误" onclick="jserror()"/>
+        <input type="button" value="promise错误" onclick="promiseerror()"/>
+    </div>
+</div>
+<script>
+    function jserror() {
+        window.noVar.error = 'error'
+    }
+</script>
+</body>
+</html>
