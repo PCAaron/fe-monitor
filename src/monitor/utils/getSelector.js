@@ -15,8 +15,15 @@ function getSelector(paths) {
 }
 
 
-export default function (path) {
-    if(Array.isArray(path)){
+export default function (pathOrTarget) {
+    if(Array.isArray(pathOrTarget)){
+        return getSelector(pathOrTarget)
+    } else {
+        let path =[]
+        while (pathOrTarget){
+            path.push(pathOrTarget)
+            pathOrTarget=pathOrTarget.parentNode
+        }
         return getSelector(path)
     }
 }

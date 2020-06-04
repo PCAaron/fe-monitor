@@ -16,6 +16,14 @@
     function jserror() {
         window.noVar.error = 'error'
     }
+
+    function promiseerror() {
+        new Promise(function (resolve,reject) {
+            window.noVar.error = 'error'
+            //reject('error')
+        })
+    }
 </script>
+<script src="/someError.js"></script>
 </body>
 </html>
