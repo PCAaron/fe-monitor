@@ -160,6 +160,25 @@ DT时代海量日志处理能力
 
 ### 接口异常采集脚本
     
+#### 接口设计
+````javascript
+{
+    "title":"前端监控系统", // 标题
+    "url":"http://localhost:8080/", //url
+    "timestamp":"159856862212542", //timestamp
+    "userAgent": "Chrome",// 浏览器版本
+    "kind": "stability",//大类
+    "type":"xhr",//小类
+    "eventType":"load",//事件类型
+    "pathname":"/success",//路径
+    "status":"200-ok",//状态码
+    "duration":"7",//持续时间
+    "response":"{\"id":1}",//响应内容
+    "params":""//参数
+}
+````
+
+
 
 ## License      
 

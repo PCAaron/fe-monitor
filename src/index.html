@@ -10,6 +10,8 @@
     <div class="container">
         <input type="button" value="js错误" onclick="jserror()"/>
         <input type="button" value="promise错误" onclick="promiseerror()"/>
+        <input id="succ" type="button" value="ajax成功请求" onclick="sendSucc()"/>
+        <input id="fail" type="button" value="fail请求失败" onclick="sendFail()"/>
     </div>
 </div>
 <script>
@@ -22,6 +24,29 @@
             window.noVar.error = 'error'
             //reject('error')
         })
+    }
+
+    function sendSucc() {
+        let xhr =  new XMLHttpRequest;
+        xhr.open('GET','/success',true)
+        xhr.responseType='json'
+        xhr.onload=function () {
+            console.log(xhr.response)
+        }
+        xhr.send()
+    }
+
+    function sendFail() {
+        let xhr = new XMLHttpRequest
+        xhr.open('POST','/error',true)
+        xhr.responseType='json'
+        xhr.onload= function () {
+            console.log(xhr.response)
+        }
+        xhr.onerror=function (err) {
+            console.log(err)
+        }
+        xhr.send('name=123')
     }
 </script>
 <script src="/someError.js"></script>
