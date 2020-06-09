@@ -178,7 +178,63 @@ DT时代海量日志处理能力
 }
 ````
 
+#### 实现
 
+/lib/xhr.js
+
+### 白屏
+
+#### 数据结构设计
+````javascript
+{
+   "title":"前端监控系统",
+   "url":"http//localhost:8080/",
+   "timestamp":"15985568165442",
+   "userAgent": "Chrome",
+   "kind":"stability",
+   "type":"blank",
+   "emptyPoints":"0",
+   "screen":"1720*1440", // 分辨率
+   "viewPoint":"1720*1440", // 视口
+   "selector":"HTML BODY #container"
+}
+````
+
+#### 实现
+* screen:返回当前window的screen对象，返回当前渲染窗口中和屏幕相关的属性      
+* innerWidth：只读的window属性，innerWidth返回以像素为单位的窗口的内部宽度     
+* innerHeight：窗口的内部高度(布局视口)的高度      
+* layout_viewport       
+* elementsFromPoint：可以获取到当前视口内指定坐标处，由里到外排列的所有元素     
+
+### 加载时间
+
+* Performance Timing        
+* DOMContentLoaded      
+* FMP       
+
+#### 阶段含义       
+
+````javascript
+字段 描述  计算方式  意义
+unload 前一个页面卸载耗时  unloadEventEnd - unloadEventStart -
+redirect 重定向耗时 redirectEnd - redirectStart 重定向的时间
+appCache 缓存耗时 domainLookupStart - fetchStart 读取缓存的时间
+dns DNS解析耗时 domainLookupEnd-domainLookupStart 可观察域名解析服务是否正常
+tcp TCP链接耗时 connectEnd - connectStart 建立连接的耗时
+ssl SSL安全连接耗时 connectEnd - secureConnectionStart 反映数据安全连接建立耗时   
+ttfb Time to First Byte(TTFB)网络请求耗时 responseStart - requestStart TTFB是发出页面请求到接受到应答数据第一个字节所花费的毫秒数
+response 响应数据传输耗时 reponseEnd - responseStart 关测网络是否正常
+dom DOM解析耗时 domInteractive-responseEnd 观察DOM结构是否合理，是否有JS阻塞页面解析
+dcl DOMContentLoaded事件耗时 domContentLoadedEventEnd-domContentLoadedEventStart 当html文档被完全加载和解析完成之后，DOMContentLoaded事件耗时，等待样式表，图像和子框架的完成加载
+resources 资源加载耗时 domComplete-domContentLoadedEventEnd 可观察文档流是否过大
+domReady DOM阶段渲染耗时 domContentLoadedEventEnd-fetchStart DOM树和页面资源加载完成，会触发domContentLoaded事件
+首次渲染耗时 首次渲染耗时 responseEnd-fetchStart 加载文档到看到第一屏非空图像的事件，也叫白屏时间
+首次可交互时间 首次可交互时间 domInteractive-fetchStart DOM树解析完成时间此时document.readyState为interactive
+首包时间耗时 首包时间 responseStart-domainLookupStart DNS解析到响应浏览器第一个字节的时间
+页面完全加载时间 页面完全加载时间 loadEventStart-fetchStart -
+onload onLoad事件耗时 loadEventEnd-loadEventStart
+````
 
 ## License      
 
